@@ -56,14 +56,15 @@ namespace CarlaSandoval_WidowsFinal
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            int total = 0;
-            for (int i =0; i <5; i++) {
-                
-                int horas = Convert.ToInt32(Interaction.InputBox("Ingrese numero de horas trabajadas por dia: "));
-                total = total + horas;
-            }
+            
+            int horasLunes = Convert.ToInt32(Interaction.InputBox("Ingrese numero de horas trabajadas Lunes: "));
+            int horasMartes = Convert.ToInt32(Interaction.InputBox("Ingrese numero de horas trabajadas Martes: "));
+            int horasMiercoles = Convert.ToInt32(Interaction.InputBox("Ingrese numero de horas trabajadas Miercoles: "));
+            int horasJueves = Convert.ToInt32(Interaction.InputBox("Ingrese numero de horas trabajadas Jueves: "));
+            int horasViernes = Convert.ToInt32(Interaction.InputBox("Ingrese numero de horas trabajadas Viernes: "));
+            int Total = horasLunes + horasMartes + horasMiercoles + horasJueves + horasViernes;
 
-            MessageBox.Show("El total de horas es: " + total);
+            MessageBox.Show("El total de horas es: " + Total);
             
         }
 
