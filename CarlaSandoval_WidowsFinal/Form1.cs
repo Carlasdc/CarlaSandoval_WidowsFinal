@@ -55,23 +55,23 @@ namespace CarlaSandoval_WidowsFinal
                 this.nombre = nombre;
                 this.apellido = apellido;
 
-                MessageBox.Show("La informacion fue validada");
+                MessageBox.Show("La informacion ha sido Validada");
             }            
             if(!puestoValido(puesto))
             {
-                MessageBox.Show("El puesto no es valido");
+                MessageBox.Show("El puesto debe ser “Soporte Técnico”, “DBA” o “Desarrollador”");
             }
             if(!sueldoValido(sueldo))
             {
-                MessageBox.Show("El sueldo no es valido");
+                MessageBox.Show("El sueldo debe ser mayor a 0");
             }
             if (!nombreValido(nombre))
             {
-                MessageBox.Show("El nombre no es valido");
+                MessageBox.Show("El nombre no es valido (Debe tener mas de 2 y menos de 50 caracteres)");
             }
             if (!nombreValido(apellido))
             {
-                MessageBox.Show("El apellido no es valido");
+                MessageBox.Show("El apellido no es valido (Debe tener mas de 2 y menos de 50 caracteres)");
             }
         }
 
@@ -89,9 +89,32 @@ namespace CarlaSandoval_WidowsFinal
             this.horasJueves = Convert.ToInt32(Interaction.InputBox("Ingrese numero de horas trabajadas Jueves: ", "HorasTrabajadas", "0"));
             this.horasViernes = Convert.ToInt32(Interaction.InputBox("Ingrese numero de horas trabajadas Viernes: ", "HorasTrabajadas", "0"));
             int Total = this.horasLunes + this.horasMartes + this.horasMiercoles + this.horasJueves + this.horasViernes;
-
+            decimal promedio = Total / 5;
+            string diasMenosCuatroHoras = "";
+            if(this.horasLunes < 4)
+            {
+                diasMenosCuatroHoras = diasMenosCuatroHoras + "Lunes ,";
+            }
+            if (this.horasMartes < 4)
+            {
+                diasMenosCuatroHoras = diasMenosCuatroHoras + "Martes ,";
+            }
+            if (this.horasMiercoles < 4)
+            {
+                diasMenosCuatroHoras = diasMenosCuatroHoras + "Miercoles ,";
+            }
+            if (this.horasJueves < 4)
+            {
+                diasMenosCuatroHoras = diasMenosCuatroHoras + "Jueves ,";
+            }
+            if (this.horasViernes < 4)
+            {
+                diasMenosCuatroHoras = diasMenosCuatroHoras + "Viernes .";
+            }
             MessageBox.Show("El total de horas es: " + Total);
-            
+            MessageBox.Show("El promedio de horas trabajadas es: " + promedio);
+            MessageBox.Show("Los dias trabajados menos de 4 horas son: " + diasMenosCuatroHoras);
+
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
